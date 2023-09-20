@@ -8,7 +8,7 @@ import Characters.Character;
 
 class Main {
   public static void main(String[] Args) {
-    Character character = new Character("Lumine", 1000, 100, 100, 100);
+    Character character = new Character("Lumine", 1000, 100, 100, 100, 1);
     character.printStatus();
   }
 }

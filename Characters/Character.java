@@ -11,14 +11,16 @@ package Characters;
 public class Character {
   private String name;
   private int hp, maxhp, atk, def, spd;
+  private int level, minLevel = 1, maxLevel = 100;
 
-  public Character(String name, int maxhp, int atk, int def, int spd) {
+  public Character(String name, int maxhp, int atk, int def, int spd, int level) {
     this.name = name;
     this.maxhp = maxhp;
     this.hp = this.maxhp;
     this.atk = atk;
     this.def = def;
     this.spd = spd;
+    this.level = level;
   }
 
   /**
