@@ -26,8 +26,24 @@ public class BattleField {
     this.isFightersTurn = random.nextBoolean();
   }
 
+  private void readyToNextTurn() {
+    this.isFightersTurn = !isFightersTurn;
+  }
+
   private int calcSumOfAllFightersHp() {
-    
+    int sumOfAllFightersHp = 0;
+    for(Fighter fighter : fighters) {
+      sumOfAllFightersHp += fighter.getHp();
+    }
+    return sumOfAllFightersHp;
+  }
+
+  private int calcSumOfAllMonstersHp() {
+    int sumOfAllMonstersHp = 0;
+    for(Monster monster : monsters) {
+      sumOfAllMonstersHp += monster.getHp();
+    }
+    return sumOfAllMonstersHp;
   }
 
   public BattleField(ArrayList<Fighter> fighters, ArrayList<Monster> monsters) {
@@ -38,12 +54,21 @@ public class BattleField {
   }
 
   public void cycleTurn() {
-    if(fighters.)
+    if(this.calcSumOfAllFightersHp() == 0) {
+      this.fightersWin();
+      return;
+    } else if(this.calcSumOfAllMonstersHp() == 0) {
+      this.fightersLose();
+      return;
+    }
 
     if(isFightersTurn) {
       this.fightersTurn();
     } else {
       this.monstersTurn();
     }
+
+    readyToNextTurn();
+    cycleTurn();
   }
 }

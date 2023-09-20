@@ -27,4 +27,8 @@ public abstract class Character {
    * Show every status which character has.
    */
   public abstract void printStatus();
+
+  public int getHp() {
+    return this.hp;
+  }
 }
