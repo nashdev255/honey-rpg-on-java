@@ -8,7 +8,7 @@ import Characters.Fighters.Fighter;
 
 class Main {
   public static void main(String[] Args) {
-    Fighter character = new Fighter("Lumine", 1000, 100, 100, 100, 1, "Monoceros");
+    Fighter character = new Fighter("Lumine", 1000, 100, 100, 100, 1, "eclipse");
     character.printStatus();
   }
 }
