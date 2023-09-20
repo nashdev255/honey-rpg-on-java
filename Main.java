@@ -4,11 +4,11 @@
  * @brief Compile this file and execute to demonstrate.
  */
 
-import Characters.Character;
+import Characters.Fighters.Fighter;
 
 class Main {
   public static void main(String[] Args) {
-    Character character = new Character("Lumine", 1000, 100, 100, 100, 1);
+    Fighter character = new Fighter("Lumine", 1000, 100, 100, 100, 1);
     character.printStatus();
   }
 }
