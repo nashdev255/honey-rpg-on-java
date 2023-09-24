@@ -55,6 +55,17 @@ public class BattleField {
     return sumOfAllMonstersHp;
   }
 
+  /**
+   * when fighter win
+   */
+  private void fightersWin() {
+    System.out.println("YOU WIN!!!!!");
+  }
+
+  private void fightersLose() {
+    System.out.println("YOU LOSE...");
+  }
+
   public BattleField(ArrayList<Fighter> fighters, ArrayList<Monster> monsters) {
     this.fighters = fighters;
     this.monsters = monsters;
@@ -66,6 +77,14 @@ public class BattleField {
    * Do cycle of battle routine.
    */
   public void cycleTurn() {
+    // Judge which side will attack next.
+    if(isFightersTurn) {
+      this.fightersTurn();
+    } else {
+      this.monstersTurn();
+    }
+
+    // Judge whether or not either fighters or monsters are dead.
     if(this.calcSumOfAllFightersHp() == 0) {
       this.fightersWin();
       return;
@@ -74,13 +93,10 @@ public class BattleField {
       return;
     }
 
-    if(isFightersTurn) {
-      this.fightersTurn();
-    } else {
-      this.monstersTurn();
-    }
-
+    // Switch turn.
     readyToNextTurn();
+
+    // Do this routine again.
     cycleTurn();
   }
 }
