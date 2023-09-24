@@ -26,10 +26,16 @@ public class BattleField {
     this.isFightersTurn = random.nextBoolean();
   }
 
+  /**
+   * Switch turn.
+   */
   private void readyToNextTurn() {
     this.isFightersTurn = !isFightersTurn;
   }
 
+  /**
+   * Returns sum of all fighters hp.
+   */
   private int calcSumOfAllFightersHp() {
     int sumOfAllFightersHp = 0;
     for(Fighter fighter : fighters) {
@@ -38,6 +44,9 @@ public class BattleField {
     return sumOfAllFightersHp;
   }
 
+  /**
+   * Returns sum of all monsters hp.
+   */
   private int calcSumOfAllMonstersHp() {
     int sumOfAllMonstersHp = 0;
     for(Monster monster : monsters) {
@@ -53,6 +62,9 @@ public class BattleField {
     this.cycleTurn();
   }
 
+  /**
+   * Do cycle of battle routine.
+   */
   public void cycleTurn() {
     if(this.calcSumOfAllFightersHp() == 0) {
       this.fightersWin();
